@@ -6,9 +6,7 @@ class AuthenticationController < ApplicationController
         if @user
 
             if @user.authenticate(params[:password])
-                payload = { user_id: @user.id }
-                secret = Rails.application.secrets.secret_key_base
-                token = JWT.encode(payload, secret)
+                token = create_token(@user)
 
                 render json: {
                     token: token,
