@@ -16,20 +16,20 @@ ActiveRecord::Schema.define(version: 2020_06_15_005408) do
     t.string "name"
     t.date "birthday"
     t.integer "age"
-    t.integer "User_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["User_id"], name: "index_friends_on_User_id"
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.integer "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "friends", "Users"
+  add_foreign_key "friends", "users"
 end

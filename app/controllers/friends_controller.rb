@@ -14,7 +14,7 @@ class FriendsController < ApplicationController
             name: params[:name],
             birthday: params[:birthday],
             age: params[:age],
-            User_id: params[:User_id]
+            user_id: params[:user_id]
         )
         render json: @friend
     end
@@ -25,7 +25,7 @@ class FriendsController < ApplicationController
             name: params[:name],
             birthday: params[:birthday],
             age: params[:age],
-            User_id: params[:User_id]
+            user_id: params[:user_id]
         )
         render json: @friend
     end

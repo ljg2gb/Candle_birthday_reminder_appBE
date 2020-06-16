@@ -4,7 +4,7 @@ class CreateFriends < ActiveRecord::Migration[6.0]
       t.string :name
       t.date :birthday
       t.integer :age
-      t.references :User, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
