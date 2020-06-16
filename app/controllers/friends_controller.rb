@@ -1,4 +1,7 @@
 class FriendsController < ApplicationController
+
+    before_action :authenticate, only: [:index, :create]
+
     def index
         @friends = Friend.all
         render json: @friends
@@ -10,12 +13,7 @@ class FriendsController < ApplicationController
     end
 
     def create
-        @friend = Friend.create(
-            name: params[:name],
-            birthday: params[:birthday],
-            age: params[:age],
-            user_id: params[:user_id]
-        )
+        @friend = Friend.create(friend_params)
         render json: @friend
     end
 
@@ -34,6 +32,12 @@ class FriendsController < ApplicationController
         @friend = Friend.find(params[:id])
         @friend.destroy
         render json: {message: "Friend successfull deleted."}
+    end
+
+    private 
+
+    def friend_params
+        params.require(:friend).permit(:name, :age, :birthday).merge(user_id: @user_id)
     end
 
 end

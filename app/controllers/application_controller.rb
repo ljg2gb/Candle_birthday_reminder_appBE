@@ -11,14 +11,14 @@ class ApplicationController < ActionController::API
             rescue
                 render json: {message: "nice try asshole"}, status: :unauthorized
             end
-        else
+        else 
             render json: {message: "nice try asshole"}, status: :unauthorized
         end
     end
 
     def create_token(user)
         payload = { user_id: user.id }
-        secret = Rails.application.secrets.secret_key_base
+        secret = Rails.application.secrets.secret_key_base 
         JWT.encode(payload, secret)
     end
 
