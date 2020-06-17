@@ -17,17 +17,6 @@ class FriendsController < ApplicationController
         render json: @friend
     end
 
-    def update
-        @friend = Friend.find(params[:id])
-        @friend.update(
-            name: params[:name],
-            birthday: params[:birthday],
-            age: params[:age],
-            user_id: params[:user_id]
-        )
-        render json: @friend
-    end
-
     def destroy
         @friend = Friend.find(params[:id])
         @friend.destroy
@@ -37,7 +26,7 @@ class FriendsController < ApplicationController
     private 
 
     def friend_params
-        params.require(:friend).permit(:name, :age, :birthday).merge(user_id: @user_id)
+        params.require(:friend).permit(:name, :dob).merge(user_id: @user_id)
     end
 
 end

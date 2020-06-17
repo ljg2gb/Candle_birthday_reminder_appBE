@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
     before_action :authenticate, only: [:index, :show]
 
+    def profile
+        render json: {user: UserSerializer.new(current_user) }, status: :accepted
+    end
+
     def index
         @users = User.all
         render json: @users, include: [:friends] 

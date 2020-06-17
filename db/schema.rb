@@ -14,8 +14,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_005408) do
 
   create_table "friends", force: :cascade do |t|
     t.string "name"
-    t.date "birthday"
-    t.integer "age"
+    t.date "dob"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
