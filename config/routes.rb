@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
 
   post "login", to: "authentication#login"
+  get "profile", to: "users#profile"
 end
