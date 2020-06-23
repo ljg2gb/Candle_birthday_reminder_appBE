@@ -14,7 +14,7 @@ I created this project to learn React JS and work on my Sass styling. This was a
 * Once you have the backend server running (run `rails s`), you can go into the frontend repo you cloned down, and in another terminal tab type `npm install` and then `npm start`. This will prompt the application to start. 
 
 
-* From there you can navigate through the website seen in the video above 
+* From there you can navigate through the site.
 
    * You can login or signup
    
